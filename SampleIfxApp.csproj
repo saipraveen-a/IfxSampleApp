@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<AssemblyName>Microsoft.Cloud.InstrumentationFramework.Sample</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Runtime" />
+		<Reference Include="Bond">
+			<HintPath>$(PkgBond_Core_CSharp)\lib\net45\Bond.dll</HintPath>
+		</Reference>
+		<Reference Include="Bond.Attributes">
+			<HintPath>$(PkgBond_Core_CSharp)\lib\net45\Bond.Attributes.dll</HintPath>
+		</Reference>
+		<Reference Include="Bond.IO">
+			<HintPath>$(PkgBond_Core_CSharp)\lib\net45\Bond.IO.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Cloud.InstrumentationFramework.Events">
+			<HintPath>$(PkgMicrosoft_Cloud_InstrumentationFramework_VC14)\lib\net45\Microsoft.Cloud.InstrumentationFramework.Events.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Cloud.InstrumentationFramework.Metrics">
+			<HintPath>$(PkgMicrosoft_Cloud_InstrumentationFramework_VC14)\lib\net45\Microsoft.Cloud.InstrumentationFramework.Metrics.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Cloud.InstrumentationFramework.Health">
+			<HintPath>$(PkgMicrosoft_Cloud_InstrumentationFramework_VC14)\lib\net45\Microsoft.Cloud.InstrumentationFramework.Health.dll</HintPath>
+		</Reference>
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Cloud.InstrumentationFramework" Version="3.2.5.1" />
+  </ItemGroup>
+
+
+</Project>

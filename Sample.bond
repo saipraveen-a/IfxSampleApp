@@ -1,0 +1,45 @@
+﻿import "Ifx.bond"
+
+namespace SampleIfx
+
+struct OperationEventPartC:Ifx.OperationSchema
+{
+	10: required wstring PartCField1;
+	20: required wstring PartCField2;
+};
+
+struct QoSEventPartC:Ifx.QoSSchema
+{
+	10: required wstring PartCField1;
+	20: required wstring PartCField2;
+};
+
+struct MyEvent:Ifx.PartASchema
+{
+    10: required wstring PartCField1;
+    20: required wstring PartCField2;
+};
+
+struct MyObjectTextPropertyEvent:Ifx.ObjectTextPropertySchema
+{
+    10: required wstring PartCField1;
+    20: required wstring PartCField2;
+};
+
+struct MyDoubleObjectPropertyEvent:Ifx.ObjectPropertySchema<double>
+{
+    10: required wstring PartCField1;
+    20: required wstring PartCField2;
+};
+
+struct MyGenericObjectPropertyEvent<T>:Ifx.ObjectPropertySchema<T>
+{
+    10: required wstring PartCField1;
+    20: required wstring PartCField2;
+};
+
+struct MyObjectReferenceEvent:Ifx.ObjectReferenceSchema
+{
+    10: required wstring PartCField1;
+    20: required wstring PartCField2;
+};
