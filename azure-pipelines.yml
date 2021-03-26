@@ -1,8 +1,7 @@
 trigger: none
-​
 steps:
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: artifact1'
-  inputs:
-    PathtoPublish: README.md
-    ArtifactName: artifact1
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: artifact1'
+    inputs:
+      PathtoPublish: README.md
+      ArtifactName: artifact1
