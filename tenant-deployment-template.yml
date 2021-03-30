@@ -1,0 +1,12 @@
+parameters:
+- name: tenant
+  type: string
+  default: ''
+
+stages:
+- template: tenant-deployment-stage-template.yml
+  parameters:
+    tenant: ${{parameters.tenant}}
+    environment: test
+    namespace: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
+    database: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
