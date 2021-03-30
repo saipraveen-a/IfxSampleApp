@@ -13,6 +13,3 @@ stages:
     steps:
       - download: Pipeline1
         artifact: artifact1
-  - template: tenant-deployment-template.yml
-    parameters:
-      tenant: SomeTenant
