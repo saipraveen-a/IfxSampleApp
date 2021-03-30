@@ -13,9 +13,7 @@ stages:
     steps:
       - download: Pipeline1
         artifact: artifact1
-  - job: template-test
-    displayName: Test template
-    steps:
-      - template: tenant-deployment-template.yml
-        parameters:
-          tenant: SomeTenant
+  
+- template: tenant-deployment-template.yml
+  parameters:
+    tenant: SomeTenant
