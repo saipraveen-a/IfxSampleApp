@@ -21,7 +21,7 @@ parameters:
 stages:
 - stage: ${{parameters.tenant}}_${{parameters.environment}}
   displayName: ${{parameters.tenant}} ${{parameters.environment}}
-  environment: ${{parameters.environment}}.${{parameters.namespace}}
+  
   jobs:
   - job: myJob
     timeoutInMinutes: 10
@@ -29,3 +29,4 @@ stages:
       vmImage: 'ubuntu-16.04'
     steps:
     - bash: echo "Hello world"
+    - bash: echo "${{parameters.environment}}.${{parameters.namespace}}"
