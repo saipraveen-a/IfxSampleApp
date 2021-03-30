@@ -1,0 +1,31 @@
+parameters:
+- name: tenant
+  type: string
+  default: ''
+- name: environment
+  type: string
+  default: ''
+- name: dependsOnEnvironment
+  type: string
+  default: ''
+- name: namespace
+  type: string
+  default: ''
+- name: dbServer
+  type: string
+  default: 'k8s-int-db.ignite.systems'
+- name: database
+  type: string
+  default: ''
+
+stages:
+- stage: ${{parameters.tenant}}_${{parameters.environment}}
+  displayName: ${{parameters.tenant}} ${{parameters.environment}}
+  jobs:
+  - job: myJob
+    environment: ${{parameters.environment}}.${{parameters.namespace}}
+    timeoutInMinutes: 10
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - bash: echo "Hello world"
