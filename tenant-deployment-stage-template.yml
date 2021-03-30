@@ -21,9 +21,9 @@ parameters:
 stages:
 - stage: ${{parameters.tenant}}_${{parameters.environment}}
   displayName: ${{parameters.tenant}} ${{parameters.environment}}
+  environment: ${{parameters.environment}}.${{parameters.namespace}}
   jobs:
   - job: myJob
-    environment: ${{parameters.environment}}.${{parameters.namespace}}
     timeoutInMinutes: 10
     pool:
       vmImage: 'ubuntu-16.04'
