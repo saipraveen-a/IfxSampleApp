@@ -1,8 +1,3 @@
-parameters:
-- name: tenant
-  type: string
-  default: ''
-
 trigger: none
 resources:
   pipelines:
@@ -18,9 +13,7 @@ stages:
     steps:
       - download: Pipeline1
         artifact: artifact1
-- template: tenant-deployment-stage-template.yml
+
+- template: tenant-deployment-template.yml
   parameters:
-    tenant: ${{parameters.tenant}}
-    environment: test
-    namespace: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
-    database: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
+    tenant: SomeTenant
