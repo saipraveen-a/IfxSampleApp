@@ -4,9 +4,24 @@ parameters:
   default: ''
 
 stages:
-- template: tenant-deployment-stage-template.yml
-  parameters:
-    tenant: ${{parameters.tenant}}
-    environment: test
-    namespace: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
-    database: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
+- ${{ if not(startsWith(variables['Build.SourceBranch'], 'refs/heads/release/')) }}:
+  - template: tenant-deployment-stage-template.yml
+    parameters:
+      tenant: ${{parameters.tenant}}
+      environment: test
+      namespace: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
+      database: ${{parameters.tenant}}-test-$(Build.SourceBranchName)
+- ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/release/') }}:
+  - template: tenant-deployment-stage-template.yml
+    parameters:
+      tenant: ${{parameters.tenant}}
+      environment: staging
+      namespace: ${{parameters.tenant}}-staging-$(Build.SourceBranchName)
+      database: ${{parameters.tenant}}-staging-$(Build.SourceBranchName)
+  - template: tenant-deployment-stage-template.yml
+    parameters:
+      tenant: ${{parameters.tenant}}
+      environment: production
+      dependsOnEnvironment: staging
+      namespace: ${{parameters.tenant}}-production
+      database: ${{parameters.tenant}}-production
