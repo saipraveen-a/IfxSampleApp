@@ -31,7 +31,7 @@ stages:
         k8sNamespace: ${{parameters.tenant}}
       displayName: Deploy helm chart into AKS
       pool:
-        name: linux
+        name: Default
       environment: ${{parameters.environment}}.${{parameters.namespace}}
       strategy:
         runOnce:
