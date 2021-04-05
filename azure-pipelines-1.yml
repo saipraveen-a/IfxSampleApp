@@ -16,4 +16,4 @@ stages:
   
 - template: tenant-deployment-template.yml
   parameters:
-    tenant: SomeTenant
+    tenant: sometenant
