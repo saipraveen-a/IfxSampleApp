@@ -32,7 +32,7 @@ stages:
       displayName: Deploy helm chart into AKS
       pool:
         name: Default
-      environment: ${{parameters.environment}}.${{parameters.namespace}}
+      environment: ${{parameters.environment}}.testresource
       strategy:
         runOnce:
           deploy:
